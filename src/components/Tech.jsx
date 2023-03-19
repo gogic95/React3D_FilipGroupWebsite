@@ -1,9 +1,17 @@
 import { BallCanvas} from "./canvas";
 import {SectionWrapper} from "../higherOrderComponent";
 import { technologies } from "../constants";
+import {motion} from 'framer-motion'
+import { styles } from '../styles';
+import { textVariant } from '../utils/motion';
 
 const Tech = () => {
   return (
+    <>
+    <motion.div variants={textVariant()}>
+          <p className={`${styles.sectionSubText}`}>We are using ancient technologies</p>
+          <h2 className={`${styles.sectionHeadText}`}>Our <span className='text-[#d12c2f]'>tech stack</span></h2>
+      </motion.div>
     <div className="flex flex-row flex-wrap justify-center gap-10">
       {technologies.map((technology) => (
         <div className="w-28 h-28" key={technology.name}>
@@ -12,6 +20,7 @@ const Tech = () => {
           
       ))}
     </div>
+    </>
   )
 }
 
